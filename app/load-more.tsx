@@ -15,7 +15,6 @@ export function LoadMore() {
 
   const loadMoreWords = async () => {
     const nextPage = page + 1000
-    console.log('nextPagen', nextPage)
     const newWords = (await fetchWords({ limit: nextPage })) ?? []
     setWords([...newWords])
     setPage(nextPage)
@@ -23,8 +22,6 @@ export function LoadMore() {
 
   useEffect(() => {
     if (inView) {
-      console.log('Working')
-      console.log(page)
       loadMoreWords()
     }
   }, [inView])
